@@ -1,75 +1,62 @@
-import React, {Component} from 'react';
-
-import styles from './style';
-import {
-  Keyboard,
-  Text,
-  View,
-  TextInput,
-  TouchableWithoutFeedback,
-  Alert,
-  KeyboardAvoidingView,
-} from 'react-native';
-import {Button} from 'react-native-elements';
-
-const appId = '1047121222092614';
-
-class LoginScreen extends Component {
+import React, { Component } from "react";
+import { View, StyleSheet, Alert } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Button } from "react-native-elements";
+// import { Avatar } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Input } from "react-native-elements";
+class login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+    };
+  }
+  onSubmit = () => {
+    const { username, password } = this.state;
+    console.log(username, password);
+    if (username === "" && password === "")
+      return Alert.alert("OPS..!", "username dan password kosong");
+    if (username === "admin" && password === "123") this.props.isLogin(true);
+    return Alert.alert("Okey!", "login suksess");
+  };
   render() {
     return (
-      <KeyboardAvoidingView style={styles.containerView} behavior="padding">
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.loginScreenContainer}>
-            <View style={styles.loginFormView}>
-              <Text style={styles.logoText}>Instamobile</Text>
-              <TextInput
-                placeholder="Username"
-                placeholderColor="#c4c3cb"
-                style={styles.loginFormTextInput}
-              />
-              <TextInput
-                placeholder="Password"
-                placeholderColor="#c4c3cb"
-                style={styles.loginFormTextInput}
-                secureTextEntry={true}
-              />
-              <Button
-                buttonStyle={styles.loginButton}
-                onPress={() => this.onLoginPress()}
-                title="Login"
-              />
-              <Button
-                buttonStyle={styles.fbLoginButton}
-                onPress={() => this.onFbLoginPress()}
-                title="Login with Facebook"
-                color="#3897f1"
-              />
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
+      <SafeAreaProvider>
+        <View style={styles.login}>
+          <Icon
+            raised
+            name="users"
+            type="font-awesome"
+            color="black"
+            onPress={() => console.log("hello")}
+            size={50}
+          />
+          <Input
+            focus
+            placeholder="Username"
+            leftIcon={{ type: "font-awesome", name: "user" }}
+            onChangeText={(username) => this.setState({ username })}
+          />
+          <Input
+            placeholder="Password"
+            leftIcon={{ type: "font-awesome", name: "key" }}
+            secureTextEntry={true}
+            onChangeText={(password) => this.setState({ password })}
+          />
+          <Button title="LOGIN" onPress={this.onSubmit} />
+        </View>
+      </SafeAreaProvider>
     );
-  }
-
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
-  onLoginPress() {}
-
-  async onFbLoginPress() {
-    const {type, token} = await Expo.Facebook.logInWithReadPermissionsAsync(
-      appId,
-      {
-        permissions: ['public_profile', 'email'],
-      },
-    );
-    if (type === 'success') {
-      const response = await fetch(
-        `https://graph.facebook.com/me?access_token=${token}`,
-      );
-      Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
-    }
   }
 }
-export default LoginScreen;
+const styles = StyleSheet.create({
+  login: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "red",
+  },
+});
+export default login;
