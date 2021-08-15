@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home, Login } from "./screen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Icon from "react-native-vector-icons/FontAwesome";
+// import { Icon } from "react-native-elements";
+import { Home, Login, Contact } from "./screen";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusLogin: "",
+      statusLogin: true,
     };
   }
   onLogin = (obj) => {
@@ -16,40 +20,50 @@ class App extends Component {
       statusLogin: obj.username,
     });
   };
-  renderScreeen = () => {
-    if (!this.state.statusLogin)
-      return <Login isLogin={(e) => this.setState({ statusLogin: e })} />;
-    if (this.state.statusLogin) return <Home />;
-  };
+
   render() {
     const { statusLogin } = this.state;
     return (
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false }}
-          initialRouteName="Login"
-        >
-          {statusLogin === "" ? (
-            <>
-              <Stack.Screen
-                name="Login"
-                children={(props) => (
-                  <Login {...props} doLogin={this.onLogin} />
-                )}
-              />
-            </>
-          ) : (
-            <>
-              <Stack.Screen name="About">
-                {(props) => <Home {...props} />}
-              </Stack.Screen>
-              <Stack.Screen
-                name="Home"
-                children={(props) => <Home {...props} />}
-              />
-            </>
-          )}
-        </Stack.Navigator>
+        {statusLogin === "" ? (
+          <Stack.Navigator
+            screenOptions={{ headerShown: false }}
+            initialRouteName="Login"
+          >
+            <Stack.Screen
+              name="Login"
+              children={(props) => <Login {...props} doLogin={this.onLogin} />}
+            />
+          </Stack.Navigator>
+        ) : (
+          <Tab.Navigator
+            screenOptions={{
+              headerShown: false,
+              tabBarActiveTintColor: "#e91e63",
+            }}
+          >
+            <Tab.Screen
+              name="Home"
+              options={{
+                tabBarLabel: "Home",
+                tabBarIcon: () => (
+                  <Icon type="font-awesome" name="home" size={25} />
+                ),
+              }}
+              children={(props) => <Home {...props} />}
+            />
+            <Tab.Screen
+              name="Contact"
+              component={Contact}
+              options={{
+                tabBarLabel: "Contact",
+                tabBarIcon: () => (
+                  <Icon type="font-awesome" name="address-book" size={25} />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        )}
       </NavigationContainer>
     );
   }

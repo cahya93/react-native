@@ -1,53 +1,42 @@
 import React, { Component } from "react";
-
-import { Text, View, SafeAreaView, TouchableOpacity } from "react-native";
+import { Button, Text, View, SafeAreaView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Header } from "react-native-elements";
+import { Avatar, ListItem } from "react-native-elements";
+import { Header } from ".";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  getRoutes = () => {
-    const { route, navigation } = this.props;
-    const routes = navigation.getState().routeNames;
-    return Object.values(routes).filter((screen) => screen !== route.name);
-  };
-  componentDidMount() {
-    console.log("Params:", this.props.route.params);
-  }
+
   render() {
-    const { navigation } = this.props;
     return (
       <SafeAreaProvider>
         <SafeAreaView>
-          <View>
-            <Header
-              leftComponent={{
-                icon: "menu",
-                color: "#fff",
-                iconStyle: { color: "#fff" },
-              }}
-              centerComponent={{ text: "MY TITLE", style: { color: "#fff" } }}
-              rightComponent={{ icon: "home", color: "#fff" }}
-            />
-          </View>
-          <View>
-            {this.getRoutes().map((route) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate(route, { payload: "ok" })}
-                key={route}
-                style={{
-                  backgroundColor: "lightgrey",
-                  padding: 10,
-                  margin: 10,
-                }}
-              >
-                <Text>{route}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
+          <Header />
+          <ListItem.Swipeable
+            leftContent={
+              <Button
+                title="Info"
+                icon={{ name: "info", color: "white" }}
+                buttonStyle={{ minHeight: "100%" }}
+              />
+            }
+            rightContent={
+              <Button
+                title="Delete"
+                icon={{ name: "delete", color: "white" }}
+                buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
+              />
+            }
+          >
+            {/* <Icon name="My Icon" /> */}
+            <ListItem.Content>
+              <ListItem.Title>Hello Swiper</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem.Swipeable>
         </SafeAreaView>
       </SafeAreaProvider>
     );
