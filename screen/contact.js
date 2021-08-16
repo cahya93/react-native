@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Alert,
-  ScrollView,
+  TextInput,
   Modal,
   FlatList,
   Pressable,
@@ -25,7 +25,11 @@ class contact extends Component {
       page: 1,
       open: false,
       modalVisible: "",
+      modalEdit: "",
       detail: "",
+      id: "",
+      name: "",
+      email: "",
     };
   }
   getData = (page = 1) => {
@@ -54,20 +58,18 @@ class contact extends Component {
   componentDidMount() {
     this.getData();
   }
-  onPressListener = (item) => {
-    const { navigation } = this.props;
-    navigation.navigate("Home", item);
-  };
-  renderItem = ({ item, idx }) => {
+
+  renderItem = ({ item }) => {
     return (
       <ListItem.Swipeable
-        onPress={() => this.setModalVisible(true, idx)}
+        bottomDivider={true}
+        onLongPress={() => this.modalDetail(true, item.id)}
         leftContent={
           <Button
             title="Edit"
             icon={{ name: "edit", color: "white" }}
             buttonStyle={{ minHeight: "100%" }}
-            onPress={() => Alert.alert("INFO press")}
+            onPress={() => this.modalEdit(true, item.id)}
           />
         }
         rightContent={
@@ -114,14 +116,109 @@ class contact extends Component {
       open: value,
     });
   };
-  setModalVisible = (value, item) => {
-    console.log(item);
+  modalDetail = (value, id) => {
+    const { users } = this.state;
+    const userDetail = users
+      .filter((user) => user.id === id)
+      .map((filterUser) => {
+        return filterUser;
+      });
+    const detail = {
+      id: userDetail[0]["id"],
+      name: userDetail[0]["name"],
+      email: userDetail[0]["email"],
+    };
+    console.log("cek detail", detail);
     this.setState({
       modalVisible: value,
-      detail: item,
+      detail: detail,
     });
   };
-
+  modalEdit = (value, id) => {
+    const { users } = this.state;
+    const userDetail = users
+      .filter((user) => user.id === id)
+      .map((filterUser) => {
+        return filterUser;
+      });
+    const detail = {
+      id: userDetail[0]["id"],
+      name: userDetail[0]["name"],
+      email: userDetail[0]["email"],
+    };
+    console.log("cek edit", detail);
+    this.setState({
+      modalEdit: value,
+      id: detail.id,
+      name: detail.name,
+      email: detail.email,
+    });
+  };
+  setEdit = () => {
+    const { id, name, email } = this.state;
+    console.log("cek save:", id);
+  };
+  setModalVisible = (value) => {
+    this.setState({
+      modalVisible: value,
+    });
+  };
+  setModalEdit = (value) => {
+    this.setState({
+      modalEdit: value,
+    });
+  };
+  renderModalEdit = () => {
+    const { modalEdit, id, name, email } = this.state;
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalEdit}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          this.setModalEdit(!modalEdit);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <TextInput
+              style={styles.input}
+              onChangeText={(value) => this.setState({ name: value })}
+              value={name}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={(value) => this.setState({ email: value })}
+              value={email}
+            />
+            <TextInput
+              contextMenuHidden
+              style={styles.input}
+              onChangeText={(value) => this.setState({ id: value })}
+              value={id}
+            />
+            {/* <Text style={styles.modalText}>{"Name :" + name}</Text>
+            <Text style={styles.modalText}>{"Email :" + email}</Text> */}
+            <View style={{ flexDirection: "row" }}>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => this.setEdit()}
+              >
+                <Text style={styles.textStyle}>Save</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => this.setModalEdit(!modalEdit)}
+              >
+                <Text style={styles.textStyle}>Cancel</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
   renderModal = () => {
     const { modalVisible, detail } = this.state;
     return (
@@ -136,7 +233,8 @@ class contact extends Component {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>{"Hello World!" + detail}</Text>
+            <Text style={styles.modalText}>{"Name :" + detail.name}</Text>
+            <Text style={styles.modalText}>{"Email :" + detail.email}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => this.setModalVisible(!modalVisible)}
@@ -187,6 +285,7 @@ class contact extends Component {
           </SpeedDial>
         </View>
         {this.renderModal()}
+        {this.renderModalEdit()}
       </SafeAreaProvider>
     );
   }
@@ -273,6 +372,12 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
 export default contact;

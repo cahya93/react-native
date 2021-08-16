@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Button,
-  ImageBackground,
-  Image,
-  ActivityIndicator,
-} from "react-native";
+import { StyleSheet, ImageBackground, ActivityIndicator } from "react-native";
 
 export default class Splash extends React.Component {
   componentDidMount = () => {
@@ -20,12 +11,12 @@ export default class Splash extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../images/flower.jpg")}
+        source={require("../images/17Agustus2021.png")}
         style={styles.backgroundImage}
       >
         <ActivityIndicator
           animating={true}
-          color="#bc2b78"
+          color="#ffffff"
           size="large"
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         />
