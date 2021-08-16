@@ -104,12 +104,13 @@ class contact extends Component {
   };
   delete = (e) => {
     let userDel = this.state.users;
-    let id = e - 1;
-    console.log("cek id", id);
-    userDel.splice(id, 1);
+    // let id = e - 1;
+    // console.log("cek id", id);
+    userDel.splice(e - 1, 1);
     this.setState({
       users: userDel,
     });
+    Alert.alert("DELETED SUCCES");
   };
   setOpen = (value) => {
     this.setState({
@@ -163,11 +164,12 @@ class contact extends Component {
     console.log("cek save:", id);
     let userEdit = this.state.users;
     console.log("cek id", id);
-    userEdit.splice(id - 1, id, editData);
+    userEdit.splice(id - 1, 1, editData);
     this.setState({
       users: userEdit,
       modalEdit: false,
     });
+    Alert.alert("EDIT SUCCES");
   };
   setModalVisible = (value) => {
     this.setState({
