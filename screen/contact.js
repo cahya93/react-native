@@ -156,7 +156,18 @@ class contact extends Component {
   };
   setEdit = () => {
     const { id, name, email } = this.state;
+    const editData = {
+      name: name,
+      email: email,
+    };
     console.log("cek save:", id);
+    let userEdit = this.state.users;
+    console.log("cek id", id);
+    userEdit.splice(id - 1, id, editData);
+    this.setState({
+      users: userEdit,
+      modalEdit: false,
+    });
   };
   setModalVisible = (value) => {
     this.setState({
@@ -193,9 +204,10 @@ class contact extends Component {
               value={email}
             />
             <TextInput
-              contextMenuHidden
-              style={styles.input}
-              onChangeText={(value) => this.setState({ id: value })}
+              editable={false}
+              selectTextOnFocus={false}
+              // style={styles.input}
+              onChange={(value) => this.setState({ id: value })}
               value={id}
             />
             {/* <Text style={styles.modalText}>{"Name :" + name}</Text>
