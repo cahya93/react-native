@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import { Button, Text, View, SafeAreaView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Avatar, ListItem } from "react-native-elements";
+import { Avatar, ListItem, SpeedDial } from "react-native-elements";
 import { Header } from ".";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      open: false,
+    };
   }
-
+  setOpen = (value) => {
+    this.setState({
+      open: value,
+    });
+  };
   render() {
+    const { open } = this.state;
     return (
       <SafeAreaProvider>
         <SafeAreaView>
@@ -38,6 +45,26 @@ class Home extends Component {
             <ListItem.Chevron />
           </ListItem.Swipeable>
         </SafeAreaView>
+        <View style={{ flex: 2 }}>
+          <SpeedDial
+            isOpen={open}
+            icon={{ name: "edit", color: "#fff" }}
+            openIcon={{ name: "close", color: "#fff" }}
+            onOpen={() => this.setOpen(!open)}
+            onClose={() => this.setOpen(!open)}
+          >
+            <SpeedDial.Action
+              icon={{ name: "add", color: "#fff" }}
+              title="Add"
+              onPress={() => console.log("Add Something")}
+            />
+            <SpeedDial.Action
+              icon={{ name: "delete", color: "#fff" }}
+              title="Delete"
+              onPress={() => console.log("Delete Something")}
+            />
+          </SpeedDial>
+        </View>
       </SafeAreaProvider>
     );
   }

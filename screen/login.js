@@ -22,7 +22,7 @@ class Login extends Component {
     console.log(email, password);
     if (email === "") return Alert.alert("OPS..!", "username kosong");
     if (password === "") return Alert.alert("OPS..!", "password kosong");
-    if (email === "admin" && password === "123") this.props.doLogin({ email });
+    if (email === "admin" || password === "123") this.props.doLogin();
     return Alert.alert("Okey!", "login suksess");
   };
   render() {

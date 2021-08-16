@@ -7,9 +7,11 @@ import {
   Image,
   Alert,
   ScrollView,
+  Modal,
   FlatList,
+  Pressable,
 } from "react-native";
-import { Button, Avatar, ListItem } from "react-native-elements";
+import { Button, Avatar, ListItem, SpeedDial } from "react-native-elements";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Header } from ".";
 
@@ -21,6 +23,9 @@ class contact extends Component {
       refresh: false,
       limit: 15,
       page: 1,
+      open: false,
+      modalVisible: "",
+      detail: "",
     };
   }
   getData = (page = 1) => {
@@ -30,7 +35,7 @@ class contact extends Component {
     });
     const { limit } = this.state;
     fetch(
-      `https://jsonplaceholder.typicode.com/comments?_limit=${limit}&_page=${page}`
+      `https://jsonplaceholder.typicode.com/users?_limit=${limit}&_page=${page}`
     )
       .then((response) => response.json())
       .then((users) => {
@@ -45,6 +50,7 @@ class contact extends Component {
         });
       });
   };
+
   componentDidMount() {
     this.getData();
   }
@@ -52,13 +58,14 @@ class contact extends Component {
     const { navigation } = this.props;
     navigation.navigate("Home", item);
   };
-  renderItem = ({ item }) => {
+  renderItem = ({ item, idx }) => {
     return (
       <ListItem.Swipeable
+        onPress={() => this.setModalVisible(true, idx)}
         leftContent={
           <Button
-            title="Info"
-            icon={{ name: "info", color: "white" }}
+            title="Edit"
+            icon={{ name: "edit", color: "white" }}
             buttonStyle={{ minHeight: "100%" }}
             onPress={() => Alert.alert("INFO press")}
           />
@@ -68,6 +75,7 @@ class contact extends Component {
             title="Delete"
             icon={{ name: "delete", color: "white" }}
             buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
+            onPress={() => this.delete(item.id)}
           />
         }
       >
@@ -79,13 +87,10 @@ class contact extends Component {
             flex: 1,
             color: "red",
             fontSize: 30,
-            // alignItems: "center",
-            // textAlign: "center",
             alignContent: "center",
             width: 100,
             height: 100,
             backgroundColor: "#12a6fc",
-            // borderWidth: 2,
           }}
         />
         <ListItem.Content>
@@ -95,7 +100,56 @@ class contact extends Component {
       </ListItem.Swipeable>
     );
   };
+  delete = (e) => {
+    let userDel = this.state.users;
+    let id = e - 1;
+    console.log("cek id", id);
+    userDel.splice(id, 1);
+    this.setState({
+      users: userDel,
+    });
+  };
+  setOpen = (value) => {
+    this.setState({
+      open: value,
+    });
+  };
+  setModalVisible = (value, item) => {
+    console.log(item);
+    this.setState({
+      modalVisible: value,
+      detail: item,
+    });
+  };
+
+  renderModal = () => {
+    const { modalVisible, detail } = this.state;
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          this.setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>{"Hello World!" + detail}</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => this.setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
   render() {
+    const { open } = this.state;
     return (
       <SafeAreaProvider>
         <Header />
@@ -112,7 +166,27 @@ class contact extends Component {
             onEndReached={() => this.getData(this.state.page + 1)}
             onEndReachedThreshold={0.5}
           />
+
+          <SpeedDial
+            isOpen={open}
+            icon={{ name: "edit", color: "#fff" }}
+            openIcon={{ name: "close", color: "#fff" }}
+            onOpen={() => this.setOpen(!open)}
+            onClose={() => this.setOpen(!open)}
+          >
+            <SpeedDial.Action
+              icon={{ name: "add", color: "#fff" }}
+              title="Add"
+              onPress={() => Alert.alert("Add Something")}
+            />
+            {/* <SpeedDial.Action
+              icon={{ name: "delete", color: "#fff" }}
+              title="Delete"
+              onPress={() => console.log("Delete Something")}
+            /> */}
+          </SpeedDial>
         </View>
+        {this.renderModal()}
       </SafeAreaProvider>
     );
   }
@@ -164,6 +238,41 @@ const styles = StyleSheet.create({
     color: "#008B8B",
     fontSize: 12,
     marginLeft: 15,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
 });
 export default contact;

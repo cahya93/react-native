@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
-// import { Icon } from "react-native-elements";
+import Splash from "./screen/Splash";
 import { Home, Login, Contact } from "./screen";
 
 const Stack = createNativeStackNavigator();
@@ -12,12 +12,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusLogin: true,
+      statusLogin: "",
     };
   }
-  onLogin = (obj) => {
+  onLogin = () => {
     this.setState({
-      statusLogin: obj.username,
+      statusLogin: true,
     });
   };
 
@@ -28,8 +28,9 @@ class App extends Component {
         {statusLogin === "" ? (
           <Stack.Navigator
             screenOptions={{ headerShown: false }}
-            initialRouteName="Login"
+            initialRouteName="Splash"
           >
+            <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen
               name="Login"
               children={(props) => <Login {...props} doLogin={this.onLogin} />}
