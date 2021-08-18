@@ -254,7 +254,7 @@ class contact extends Component {
     const { open } = this.state;
     return (
       <SafeAreaProvider>
-        <Header title={"Contact"} />
+        {/* <Header title={"Contact"} /> */}
         <View style={{ flex: 1 }}>
           <FlatList
             extraData={this.state}

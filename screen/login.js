@@ -71,11 +71,11 @@ class Login extends Component {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonContainer}>
+        {/* <TouchableOpacity style={styles.buttonContainer}>
           <Text>Register</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
-        <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]}>
+        {/* <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]}>
           <View style={styles.socialButtonContent}>
             <Image
               style={styles.icon}
@@ -97,7 +97,7 @@ class Login extends Component {
             />
             <Text style={styles.loginText}>Sign in with google</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }

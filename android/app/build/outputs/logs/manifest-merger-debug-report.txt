@@ -9,6 +9,7 @@ MERGED from [com.facebook.flipper:flipper:0.75.1] /home/cahya93/.gradle/caches/t
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/d8279ebfbcca51b68586de1b9bc17210/jetified-flipper-network-plugin-0.75.1/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/13e0ca18817a9e59a8c4a94704ec8c3c/jetified-flipper-fresco-plugin-0.75.1/AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-pager-view] /home/cahya93/Desktop/react-native/node_modules/react-native-pager-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /home/cahya93/Desktop/react-native/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /home/cahya93/Desktop/react-native/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -40,10 +41,10 @@ MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/cahya93/.gradle/caches/
 MERGED from [androidx.fragment:fragment:1.2.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/5e5754defa7ec1b661ffd11a17838c67/fragment-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/3c1c25210c9523b781f68f6e5260d398/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/22a5d9f52d495a432176451a4c4ba982/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/2f70304b103eacfab05dbe55739e869f/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/49dee3543bc65746b6bba9f83aa0b18a/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/412f4e60090d6c7e949274f12fef4b1d/jetified-activity-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/86cf751735e9e9dd0416cce35c4a71a1/customview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.2.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/ae1a1dddf9cea612695d8157e2ff38cd/transition-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/361553562ce35cf8cf447832c4a7d1ec/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -161,6 +162,8 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.g
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/13e0ca18817a9e59a8c4a94704ec8c3c/jetified-flipper-fresco-plugin-0.75.1/AndroidManifest.xml:11:5-13:41
 MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-pager-view] /home/cahya93/Desktop/react-native/node_modules/react-native-pager-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-pager-view] /home/cahya93/Desktop/react-native/node_modules/react-native-pager-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /home/cahya93/Desktop/react-native/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -223,14 +226,14 @@ MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/cahya93/.
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/3c1c25210c9523b781f68f6e5260d398/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/22a5d9f52d495a432176451a4c4ba982/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/22a5d9f52d495a432176451a4c4ba982/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/2f70304b103eacfab05dbe55739e869f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/2f70304b103eacfab05dbe55739e869f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/49dee3543bc65746b6bba9f83aa0b18a/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/49dee3543bc65746b6bba9f83aa0b18a/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/412f4e60090d6c7e949274f12fef4b1d/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/412f4e60090d6c7e949274f12fef4b1d/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/c38f0dcdb4eabb88f8961812937ce545/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/86cf751735e9e9dd0416cce35c4a71a1/customview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/86cf751735e9e9dd0416cce35c4a71a1/customview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.transition:transition:1.2.0] /home/cahya93/.gradle/caches/transforms-2/files-2.1/ae1a1dddf9cea612695d8157e2ff38cd/transition-1.2.0/AndroidManifest.xml:20:5-22:41

@@ -11,7 +11,7 @@ export default class Splash extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../images/yantoweb.png")}
+        source={require("../images/yantoweb-wa.png")}
         style={styles.backgroundImage}
       >
         <ActivityIndicator

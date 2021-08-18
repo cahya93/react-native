@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <SafeAreaProvider>
         <SafeAreaView>
-          <Header title={"Home"} />
+          {/* <Header title={"Home"} /> */}
           <ListItem.Swipeable
             leftContent={
               <Button

@@ -74,7 +74,6 @@ class todo extends Component {
     return (
       <ListItem.Swipeable
         bottomDivider={true}
-        // onLongPress={() => this.modalDetail(true, idx)}
         leftContent={
           <Button
             title="Edit"

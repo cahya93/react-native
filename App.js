@@ -2,17 +2,20 @@ import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Splash from "./screen/Splash";
-import { Home, Login, Contact, Todo } from "./screen";
+import { Home, Login, Contact, Status, Calls } from "./screen";
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       statusLogin: true,
+      data: [{}],
     };
   }
   onLogin = () => {
@@ -44,32 +47,32 @@ class App extends Component {
             }}
           >
             <Tab.Screen
-              name="Home"
+              name="Chat"
               options={{
-                tabBarLabel: "Home",
+                tabBarLabel: "Chat",
                 tabBarIcon: () => (
-                  <Icon type="font-awesome" name="home" size={25} />
+                  <Icon type="font-awesome" name="comments" size={25} />
                 ),
               }}
               children={(props) => <Home {...props} />}
             />
             <Tab.Screen
-              name="Contact"
-              component={Contact}
+              name="Status"
+              component={Status}
               options={{
-                tabBarLabel: "Contact",
+                tabBarLabel: "Status",
                 tabBarIcon: () => (
-                  <Icon type="font-awesome" name="address-book" size={25} />
+                  <Icon type="font-awesome" name="quote-right" size={25} />
                 ),
               }}
             />
             <Tab.Screen
-              name="Todo"
-              component={Todo}
+              name="Calls"
+              component={Calls}
               options={{
-                tabBarLabel: "Todo",
+                tabBarLabel: "Calls",
                 tabBarIcon: () => (
-                  <Icon type="font-awesome" name="list" size={25} />
+                  <Icon type="font-awesome" name="phone" size={25} />
                 ),
               }}
             />
