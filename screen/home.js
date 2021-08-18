@@ -10,6 +10,7 @@ import {
 import { ImageBackground } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Avatar, ListItem, SpeedDial } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 class Home extends Component {
   constructor(props) {
@@ -177,19 +178,23 @@ class Home extends Component {
         style={styles.backgroundImage}
       >
         <SafeAreaProvider>
-          <SafeAreaView>
-            <View>
-              <FlatList
-                data={this.state.data}
-                renderItem={this.renderItem}
-                keyExtractor={(item) => item.id}
-              />
-            </View>
-          </SafeAreaView>
           <View style={{ flex: 2 }}>
-            {/* <SpeedDial
+            <FlatList
+              data={this.state.data}
+              renderItem={this.renderItem}
+              keyExtractor={(item) => item.id}
+            />
+            <SpeedDial
+              color="green"
               isOpen={open}
-              icon={{ name: "edit", color: "#fff" }}
+              icon={
+                <Icon
+                  type="font-awesome"
+                  name="comments"
+                  size={25}
+                  color="white"
+                />
+              }
               openIcon={{ name: "close", color: "#fff" }}
               onOpen={() => this.setOpen(!open)}
               onClose={() => this.setOpen(!open)}
@@ -204,7 +209,7 @@ class Home extends Component {
                 title="Delete"
                 onPress={() => console.log("Delete Something")}
               />
-            </SpeedDial> */}
+            </SpeedDial>
           </View>
         </SafeAreaProvider>
       </ImageBackground>
