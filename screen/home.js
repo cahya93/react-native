@@ -81,6 +81,48 @@ class Home extends Component {
           date: "",
           countChat: "",
         },
+        {
+          id: 10,
+          name: "Nama 10",
+          chat: "haloo 10",
+          date: "",
+          countChat: "",
+        },
+        {
+          id: 11,
+          name: "Nama 11",
+          chat: "haloo 11",
+          date: "",
+          countChat: "",
+        },
+        {
+          id: 12,
+          name: "Nama 12",
+          chat: "haloo 12",
+          date: "",
+          countChat: "",
+        },
+        {
+          id: 13,
+          name: "Nama 13",
+          chat: "haloo 13",
+          date: "",
+          countChat: "",
+        },
+        {
+          id: 14,
+          name: "Nama 14",
+          chat: "haloo 14",
+          date: "",
+          countChat: "",
+        },
+        {
+          id: 15,
+          name: "Nama 15",
+          chat: "haloo 15",
+          date: "",
+          countChat: "",
+        },
       ],
     };
   }
@@ -119,11 +161,13 @@ class Home extends Component {
       >
         <SafeAreaProvider>
           <SafeAreaView>
-            <FlatList
-              data={this.state.data}
-              renderItem={this.renderItem}
-              keyExtractor={(item) => item.id}
-            />
+            <View>
+              <FlatList
+                data={this.state.data}
+                renderItem={this.renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            </View>
           </SafeAreaView>
           <View style={{ flex: 2 }}>
             <SpeedDial
