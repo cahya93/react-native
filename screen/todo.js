@@ -108,8 +108,18 @@ class todo extends Component {
           />
         </View>
         <ListItem.Content>
-          <ListItem.Title>{item.title}</ListItem.Title>
-          <ListItem.Subtitle>{item.description}</ListItem.Subtitle>
+          <ListItem.Title
+            style={!item.status ? styles.title : styles.titleChecked}
+          >
+            {item.title}
+          </ListItem.Title>
+          <ListItem.Subtitle
+            style={
+              !item.status ? styles.description : styles.descriptionChecked
+            }
+          >
+            {item.description}
+          </ListItem.Subtitle>
         </ListItem.Content>
       </ListItem.Swipeable>
     );
@@ -126,19 +136,33 @@ class todo extends Component {
   };
   handlerInput = () => {
     const { idx, title, description } = this.state;
-    let id = this.state.data.length + 1;
     let status = false;
+    let id = this.state.data.length + 1;
+    const newData = {
+      id: id,
+      title: title,
+      description: description,
+      status: status,
+    };
+    const editData = {
+      id: id - 1,
+      title: title,
+      description: description,
+      status: status,
+    };
     if (idx === "")
       return this.setState((prevState) => ({
-        data: [...prevState.data, { id, title, description, status }],
+        data: [...prevState.data, newData],
         title: "",
         description: "",
         open: "",
         modalVisible: "",
       }));
     return this.setState((prevState) => {
+      console.log("cek id:", idx);
       const newTodo = prevState.data;
-      newTodo.splice(idx - 1, 1, { id, title, description, status });
+      let idEdit = id - 1;
+      newTodo.splice(idx - 1, 1, editData);
       return {
         data: newTodo,
         title: "",
