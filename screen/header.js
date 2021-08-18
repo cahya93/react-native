@@ -4,9 +4,16 @@ class header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "home",
+      title: "",
     };
   }
+  componentDidMount() {
+    const { title } = this.props;
+    this.setState({
+      title: title,
+    });
+  }
+
   render() {
     return (
       <Header
@@ -17,12 +24,13 @@ class header extends Component {
           iconStyle: { color: "#fff" },
         }}
         centerComponent={{
-          text: "My Title",
-          style: { color: "#fff" },
+          text: this.state.title,
+          style: { color: "#fff", fontSize: 20 },
         }}
         containerStyle={{
           backgroundColor: "#3D6DCC",
         }}
+        // title={this.setTitle(this.props.name)}
       />
     );
   }

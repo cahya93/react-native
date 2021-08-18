@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Splash from "./screen/Splash";
-import { Home, Login, Contact } from "./screen";
+import { Home, Login, Contact, Todo } from "./screen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusLogin: "",
+      statusLogin: true,
     };
   }
   onLogin = () => {
@@ -40,7 +40,7 @@ class App extends Component {
           <Tab.Navigator
             screenOptions={{
               headerShown: false,
-              tabBarActiveTintColor: "#e91e63",
+              tabBarActiveTintColor: "#0dff00",
             }}
           >
             <Tab.Screen
@@ -60,6 +60,16 @@ class App extends Component {
                 tabBarLabel: "Contact",
                 tabBarIcon: () => (
                   <Icon type="font-awesome" name="address-book" size={25} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Todo"
+              component={Todo}
+              options={{
+                tabBarLabel: "Todo",
+                tabBarIcon: () => (
+                  <Icon type="font-awesome" name="list" size={25} />
                 ),
               }}
             />

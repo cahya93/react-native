@@ -59,11 +59,11 @@ class contact extends Component {
     this.getData();
   }
 
-  renderItem = ({ item }) => {
+  renderItem = ({ item, idx }) => {
     return (
       <ListItem.Swipeable
         bottomDivider={true}
-        onLongPress={() => this.modalDetail(true, item.id)}
+        onLongPress={() => this.modalDetail(true, idx)}
         leftContent={
           <Button
             title="Edit"
@@ -104,8 +104,7 @@ class contact extends Component {
   };
   delete = (e) => {
     let userDel = this.state.users;
-    // let id = e - 1;
-    // console.log("cek id", id);
+    console.log("cek id", e);
     userDel.splice(e - 1, 1);
     this.setState({
       users: userDel,
@@ -205,15 +204,6 @@ class contact extends Component {
               onChangeText={(value) => this.setState({ email: value })}
               value={email}
             />
-            <TextInput
-              editable={false}
-              selectTextOnFocus={false}
-              // style={styles.input}
-              onChange={(value) => this.setState({ id: value })}
-              value={id}
-            />
-            {/* <Text style={styles.modalText}>{"Name :" + name}</Text>
-            <Text style={styles.modalText}>{"Email :" + email}</Text> */}
             <View style={{ flexDirection: "row" }}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
@@ -264,7 +254,7 @@ class contact extends Component {
     const { open } = this.state;
     return (
       <SafeAreaProvider>
-        <Header />
+        <Header title={"Contact"} />
         <View style={{ flex: 1 }}>
           <FlatList
             extraData={this.state}
@@ -291,11 +281,6 @@ class contact extends Component {
               title="Add"
               onPress={() => Alert.alert("Add Something")}
             />
-            {/* <SpeedDial.Action
-              icon={{ name: "delete", color: "#fff" }}
-              title="Delete"
-              onPress={() => console.log("Delete Something")}
-            /> */}
           </SpeedDial>
         </View>
         {this.renderModal()}

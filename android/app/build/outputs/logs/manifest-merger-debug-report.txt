@@ -8,6 +8,7 @@ MERGED from /home/cahya93/Desktop/react-native/android/app/src/main/AndroidManif
 MERGED from [com.facebook.flipper:flipper:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/a8f6015f96666ab8d93bfe5b64998bc8/jetified-flipper-0.75.1/AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/d8279ebfbcca51b68586de1b9bc17210/jetified-flipper-network-plugin-0.75.1/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/13e0ca18817a9e59a8c4a94704ec8c3c/jetified-flipper-fresco-plugin-0.75.1/AndroidManifest.xml:8:1-15:12
+MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /home/cahya93/Desktop/react-native/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /home/cahya93/Desktop/react-native/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -158,6 +159,8 @@ MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] /home/cahya93/.
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/d8279ebfbcca51b68586de1b9bc17210/jetified-flipper-network-plugin-0.75.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/13e0ca18817a9e59a8c4a94704ec8c3c/jetified-flipper-fresco-plugin-0.75.1/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.75.1] /home/cahya93/.gradle/caches/transforms-2/files-2.1/13e0ca18817a9e59a8c4a94704ec8c3c/jetified-flipper-fresco-plugin-0.75.1/AndroidManifest.xml:11:5-13:41
+MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_checkbox] /home/cahya93/Desktop/react-native/node_modules/@react-native-community/checkbox/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] /home/cahya93/Desktop/react-native/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /home/cahya93/Desktop/react-native/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
