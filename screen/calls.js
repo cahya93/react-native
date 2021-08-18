@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 class calls extends Component {
   constructor(props) {
@@ -132,12 +133,15 @@ class calls extends Component {
           }}
         />
         <ListItem.Content>
-          <ListItem.Title style={{ color: "black" }}>
-            {item.name}
-          </ListItem.Title>
-          <ListItem.Subtitle style={{ color: "black" }}>
-            {item.date}
-          </ListItem.Subtitle>
+          <View style={{ flexDirection: "row" }}>
+            <View>
+              <Text style={{ color: "black" }}>{item.name}</Text>
+              <Text style={{ color: "black" }}>{item.chat}</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: "flex-end" }}>
+              <Icon type="font-awesome" name="phone" size={25} color="green" />
+            </View>
+          </View>
         </ListItem.Content>
         <ListItem.Chevron />
       </ListItem>

@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Splash from "./screen/Splash";
+import Header from "./screen/header";
 import { Home, Login, Contact, Status, Calls } from "./screen";
 
 const Stack = createNativeStackNavigator();
@@ -40,43 +41,45 @@ class App extends Component {
             />
           </Stack.Navigator>
         ) : (
-          <Tab.Navigator
-            screenOptions={{
-              headerShown: false,
-              tabBarActiveTintColor: "#0dff00",
-            }}
-          >
-            <Tab.Screen
-              name="Chat"
-              options={{
-                tabBarLabel: "Chat",
-                tabBarIcon: () => (
-                  <Icon type="font-awesome" name="comments" size={25} />
-                ),
+          <>
+            <Header />
+            <Tab.Navigator
+              screenOptions={{
+                headerShown: false,
               }}
-              children={(props) => <Home {...props} />}
-            />
-            <Tab.Screen
-              name="Status"
-              component={Status}
-              options={{
-                tabBarLabel: "Status",
-                tabBarIcon: () => (
-                  <Icon type="font-awesome" name="quote-right" size={25} />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Calls"
-              component={Calls}
-              options={{
-                tabBarLabel: "Calls",
-                tabBarIcon: () => (
-                  <Icon type="font-awesome" name="phone" size={25} />
-                ),
-              }}
-            />
-          </Tab.Navigator>
+            >
+              <Tab.Screen
+                name="Chat"
+                options={{
+                  tabBarLabel: "Chat",
+                  tabBarIcon: () => (
+                    <Icon type="font-awesome" name="comments" size={25} />
+                  ),
+                }}
+                children={(props) => <Home {...props} />}
+              />
+              <Tab.Screen
+                name="Status"
+                component={Status}
+                options={{
+                  tabBarLabel: "Status",
+                  tabBarIcon: () => (
+                    <Icon type="font-awesome" name="quote-right" size={25} />
+                  ),
+                }}
+              />
+              <Tab.Screen
+                name="Calls"
+                component={Calls}
+                options={{
+                  tabBarLabel: "Calls",
+                  tabBarIcon: () => (
+                    <Icon type="font-awesome" name="phone" size={25} />
+                  ),
+                }}
+              />
+            </Tab.Navigator>
+          </>
         )}
       </NavigationContainer>
     );

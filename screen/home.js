@@ -10,7 +10,6 @@ import {
 import { ImageBackground } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Avatar, ListItem, SpeedDial } from "react-native-elements";
-import { Header } from ".";
 
 class Home extends Component {
   constructor(props) {
@@ -22,106 +21,106 @@ class Home extends Component {
           id: 1,
           name: "Nama",
           chat: "haloo",
-          date: "",
-          countChat: "",
+          date: "18:01",
+          countChat: "1",
         },
         {
           id: 2,
           name: "Nama 2",
           chat: "haloo2",
-          date: "",
-          countChat: "",
+          date: "18:02",
+          countChat: "2",
         },
         {
           id: 3,
           name: "Nama 3",
           chat: "haloo 3",
-          date: "",
-          countChat: "",
+          date: "18:03",
+          countChat: "3",
         },
         {
           id: 4,
           name: "Nama 4",
           chat: "haloo 4",
-          date: "",
-          countChat: "",
+          date: "18:04",
+          countChat: "43",
         },
         {
           id: 5,
           name: "Nama 5",
           chat: "haloo 5",
-          date: "",
-          countChat: "",
+          date: "18:05",
+          countChat: "45",
         },
         {
           id: 6,
           name: "Nama 6",
           chat: "haloo 6",
-          date: "",
-          countChat: "",
+          date: "18:06",
+          countChat: "5",
         },
         {
           id: 7,
           name: "Nama 7",
           chat: "haloo 7",
-          date: "",
-          countChat: "",
+          date: "18:07",
+          countChat: "43",
         },
         {
           id: 8,
           name: "Nama 8",
           chat: "haloo 8",
-          date: "",
-          countChat: "",
+          date: "18:08",
+          countChat: "55",
         },
         {
           id: 9,
           name: "Nama 9",
           chat: "haloo 9",
-          date: "",
-          countChat: "",
+          date: "18:09",
+          countChat: "9",
         },
         {
           id: 10,
           name: "Nama 10",
           chat: "haloo 10",
-          date: "",
-          countChat: "",
+          date: "18:10",
+          countChat: "12",
         },
         {
           id: 11,
           name: "Nama 11",
           chat: "haloo 11",
-          date: "",
-          countChat: "",
+          date: "18:11",
+          countChat: "1",
         },
         {
           id: 12,
           name: "Nama 12",
           chat: "haloo 12",
-          date: "",
-          countChat: "",
+          date: "18:12",
+          countChat: "1",
         },
         {
           id: 13,
           name: "Nama 13",
           chat: "haloo 13",
-          date: "",
-          countChat: "",
+          date: "18:13",
+          countChat: "1",
         },
         {
           id: 14,
           name: "Nama 14",
           chat: "haloo 14",
-          date: "",
-          countChat: "",
+          date: "18:14",
+          countChat: "1",
         },
         {
           id: 15,
           name: "Nama 15",
           chat: "haloo 15",
-          date: "",
-          countChat: "",
+          date: "18:15",
+          countChat: "1",
         },
       ],
     };
@@ -137,16 +136,34 @@ class Home extends Component {
       <ListItem
         key={item.id}
         bottomDivider
-        containerStyle={{ backgroundColor: "rgba(64, 255, 0, 0.45)" }}
+        containerStyle={{ backgroundColor: "rgba(252, 252, 252, 0.66)" }}
       >
-        {/* <Icon name={item.name} /> */}
+        <Avatar
+          size="medium"
+          rounded
+          source={{
+            uri: "https://avatars.githubusercontent.com/u/49233072?s=60&v=4",
+          }}
+        />
         <ListItem.Content>
-          <ListItem.Title style={{ color: "white" }}>
-            {item.name}
-          </ListItem.Title>
-          <ListItem.Subtitle style={{ color: "white" }}>
-            {item.chat}
-          </ListItem.Subtitle>
+          <View style={{ flexDirection: "row" }}>
+            <View>
+              <Text style={{ color: "black" }}>{item.name}</Text>
+              <Text style={{ color: "black" }}>{item.chat}</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: "flex-end" }}>
+              <View>
+                <Text>{item.date}</Text>
+              </View>
+              <View>
+                <Avatar
+                  rounded
+                  title={item.countChat}
+                  backgroundColor="green"
+                />
+              </View>
+            </View>
+          </View>
         </ListItem.Content>
         <ListItem.Chevron />
       </ListItem>
@@ -170,7 +187,7 @@ class Home extends Component {
             </View>
           </SafeAreaView>
           <View style={{ flex: 2 }}>
-            <SpeedDial
+            {/* <SpeedDial
               isOpen={open}
               icon={{ name: "edit", color: "#fff" }}
               openIcon={{ name: "close", color: "#fff" }}
@@ -187,7 +204,7 @@ class Home extends Component {
                 title="Delete"
                 onPress={() => console.log("Delete Something")}
               />
-            </SpeedDial>
+            </SpeedDial> */}
           </View>
         </SafeAreaProvider>
       </ImageBackground>
