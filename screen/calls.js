@@ -136,7 +136,7 @@ class calls extends Component {
           <View style={{ flexDirection: "row" }}>
             <View>
               <Text style={{ color: "black" }}>{item.name}</Text>
-              <Text style={{ color: "black" }}>{item.chat}</Text>
+              <Text style={{ color: "black" }}>{"Kemarin " + item.date}</Text>
             </View>
             <View style={{ flex: 1, alignItems: "flex-end" }}>
               <Icon type="font-awesome" name="phone" size={25} color="green" />

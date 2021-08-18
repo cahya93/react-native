@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Splash from "./screen/Splash";
 import Header from "./screen/header";
 import { Home, Login, Contact, Status, Calls } from "./screen";
+import { Alert } from "react-native";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -15,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusLogin: true,
+      statusLogin: false,
       data: [{}],
     };
   }
@@ -24,12 +25,17 @@ class App extends Component {
       statusLogin: true,
     });
   };
-
+  onLogout = (value) => {
+    this.setState({
+      statusLogin: value,
+    });
+    Alert.alert("LOGOUT SUCCESS");
+  };
   render() {
     const { statusLogin } = this.state;
     return (
       <NavigationContainer>
-        {statusLogin === "" ? (
+        {statusLogin === false ? (
           <Stack.Navigator
             screenOptions={{ headerShown: false }}
             initialRouteName="Splash"
@@ -42,7 +48,7 @@ class App extends Component {
           </Stack.Navigator>
         ) : (
           <>
-            <Header />
+            <Header islogout={(value) => this.onLogout(value)} />
             <Tab.Navigator
               screenOptions={{
                 headerShown: false,
