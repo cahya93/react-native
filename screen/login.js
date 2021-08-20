@@ -8,6 +8,7 @@ import {
   Alert,
   Image,
 } from "react-native";
+import { connect } from "react-redux";
 
 class Login extends Component {
   constructor(props) {
@@ -19,11 +20,27 @@ class Login extends Component {
   }
   onSubmit = () => {
     const { email, password } = this.state;
-    console.log(email, password);
-    if (email === "") return Alert.alert("OPS..!", "username kosong");
-    if (password === "") return Alert.alert("OPS..!", "password kosong");
-    if (email === "admin" || password === "123") this.props.doLogin();
-    return Alert.alert("Okey!", "login suksess");
+    const listUser = this.props.users;
+    let dataLogin = {
+      email: email,
+      password: password,
+    };
+    for (let i = 0; i < listUser.length; i++) {
+      if (
+        email === listUser[i]["email"] &&
+        password === listUser[i]["password"]
+      ) {
+        this.setState({
+          email: "",
+          password: "",
+        });
+        // console.log(`login sukses :`);
+        this.props.navigation.navigate("Home");
+        this.props.doLogin(dataLogin);
+        return Alert.alert("Okey", "Login success");
+      }
+    }
+    return Alert.alert("Ops!", "email / password is wrong");
   };
   render() {
     return (
@@ -170,4 +187,12 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 });
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    users: state.listUser,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  doLogin: (dataLogin) => dispatch({ type: "LOGIN", payload: { dataLogin } }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
