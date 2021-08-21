@@ -7,5 +7,17 @@ import Header from "./header";
 import Todo from "./todo";
 import Status from "./status";
 import Calls from "./calls";
+import ChatScreen from "./chatScreen";
 
-export { Splash, Home, Chat, Login, Contact, Header, Todo, Status, Calls };
+export {
+  Splash,
+  Home,
+  Chat,
+  Login,
+  Contact,
+  Header,
+  Todo,
+  Status,
+  Calls,
+  ChatScreen,
+};

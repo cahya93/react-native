@@ -134,9 +134,10 @@ class Home extends Component {
   };
 
   renderItem = ({ item }) => {
+    console.log("cek data", item);
     return (
       <ListItem
-        key={item.id}
+        key={item.email}
         bottomDivider
         containerStyle={{ backgroundColor: "rgba(252, 252, 252, 0.66)" }}
       >
@@ -150,8 +151,8 @@ class Home extends Component {
         <ListItem.Content>
           <View style={{ flexDirection: "row" }}>
             <View>
-              <Text style={{ color: "black" }}>{item.name}</Text>
-              <Text style={{ color: "black" }}>{item.chat}</Text>
+              <Text style={{ color: "black" }}>{item.email}</Text>
+              <Text style={{ color: "black" }}>{item.password}</Text>
             </View>
             <View style={{ flex: 1, alignItems: "flex-end" }}>
               <View>
@@ -172,6 +173,7 @@ class Home extends Component {
     );
   };
   render() {
+    console.log("cek data", this.props.dataUser.dataLogin);
     const { open } = this.state;
     return (
       <ImageBackground
@@ -181,7 +183,7 @@ class Home extends Component {
         <SafeAreaProvider>
           <View style={{ flex: 2 }}>
             <FlatList
-              data={this.state.data}
+              data={this.props.dataUser.dataLogin}
               renderItem={this.renderItem}
               keyExtractor={(item) => item.id}
             />
@@ -213,7 +215,9 @@ let styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   console.log("state redux", state);
-  return {};
+  return {
+    dataUser: state,
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   console.log("dispatch:", dispatch);

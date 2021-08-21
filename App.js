@@ -9,12 +9,20 @@ const defaultState = {
   dataLogin: [],
   listUser: [
     {
+      id: 1,
       email: "user1@mail.com",
       password: "12345",
+      name: "user1",
+      chat: "haloo",
+      date: "18:01",
     },
     {
+      id: 2,
       email: "user2@mail.com",
       password: "12345",
+      name: "user2",
+      chat: "haloo",
+      date: "18:01",
     },
   ],
 };
