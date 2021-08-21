@@ -140,6 +140,7 @@ class Home extends Component {
         key={item.email}
         bottomDivider
         containerStyle={{ backgroundColor: "rgba(252, 252, 252, 0.66)" }}
+        onPress={() => this.props.navigation.navigate("ChatScreen")}
       >
         <Avatar
           size="medium"
@@ -151,8 +152,8 @@ class Home extends Component {
         <ListItem.Content>
           <View style={{ flexDirection: "row" }}>
             <View>
-              <Text style={{ color: "black" }}>{item.email}</Text>
-              <Text style={{ color: "black" }}>{item.password}</Text>
+              <Text style={{ color: "black" }}>{item.name}</Text>
+              <Text style={{ color: "black" }}>{item.chat}</Text>
             </View>
             <View style={{ flex: 1, alignItems: "flex-end" }}>
               <View>
@@ -183,7 +184,7 @@ class Home extends Component {
         <SafeAreaProvider>
           <View style={{ flex: 2 }}>
             <FlatList
-              data={this.props.dataUser.dataLogin}
+              data={this.state.data}
               renderItem={this.renderItem}
               keyExtractor={(item) => item.id}
             />

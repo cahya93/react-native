@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   btnSend: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#02ad16",
     width: 40,
     height: 40,
     borderRadius: 360,

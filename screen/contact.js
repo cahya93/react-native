@@ -63,7 +63,7 @@ class contact extends Component {
     return (
       <ListItem.Swipeable
         bottomDivider={true}
-        onLongPress={() => this.modalDetail(true, idx)}
+        onPress={() => this.props.navigation.navigate("ChatScreen")}
         leftContent={
           <Button
             title="Edit"
