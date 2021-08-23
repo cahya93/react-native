@@ -17,6 +17,7 @@ class profile extends Component {
       <ListItem bottomDivider={true}>
         <ListItem.Content>
           <Image
+            onPress={() => this.props.navigation.navigate("Camera")}
             source={{
               uri: "https://avatars.githubusercontent.com/u/49233072?s=48&v=4",
             }}
