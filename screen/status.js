@@ -3,6 +3,8 @@ import { View, Text, SafeAreaView, FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { RNCamera } from "react-native-camera";
+
 class status extends Component {
   constructor(props) {
     super(props);
@@ -154,6 +156,7 @@ class status extends Component {
                 source={{
                   uri: "https://avatars.githubusercontent.com/u/49233072?s=60&v=4",
                 }}
+                onPress={() => this.props.navigation.navigate("Camera")}
               />
               <View style={{ alignSelf: "center" }}>
                 <Text style={{ fontSize: 18, marginLeft: 15 }}>

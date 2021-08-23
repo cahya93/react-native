@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Splash, Home, Login, Contact, ChatScreen } from "../../screen";
+import { Splash, Home, Login, Contact, ChatScreen, Profile } from "../screen";
+import Camera from "../screen/camera";
 
 const Stack = createNativeStackNavigator();
-class index extends Component {
+class stack extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -13,9 +14,11 @@ class index extends Component {
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
         // initialRouteName="Splash"
-        initialRouteName="Login"
+        initialRouteName="Profile"
       >
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Camera" component={Camera} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
@@ -25,4 +28,4 @@ class index extends Component {
   }
 }
 
-export default index;
+export default stack;

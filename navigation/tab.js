@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Chat, Header, Status, Calls } from "../../screen";
+import { Chat, Header, Status, Calls } from "../screen";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Tab = createMaterialTopTabNavigator();

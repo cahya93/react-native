@@ -24,12 +24,12 @@
         "source": "/home/cahya93/Desktop/react-native/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/cahya93/Desktop/react-native/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/home/cahya93/Desktop/react-native/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/home/cahya93/Desktop/react-native/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/cahya93/Desktop/react-native/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/cahya93/Desktop/react-native/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/cahya93/Desktop/react-native/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/cahya93/Desktop/react-native/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",

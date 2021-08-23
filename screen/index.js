@@ -8,6 +8,7 @@ import Todo from "./todo";
 import Status from "./status";
 import Calls from "./calls";
 import ChatScreen from "./chatScreen";
+import Profile from "./profile";
 
 export {
   Splash,
@@ -20,4 +21,5 @@ export {
   Status,
   Calls,
   ChatScreen,
+  Profile,
 };

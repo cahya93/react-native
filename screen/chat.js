@@ -18,113 +18,7 @@ class Home extends Component {
     super(props);
     this.state = {
       open: false,
-      data: [
-        {
-          id: 1,
-          name: "Nama",
-          chat: "haloo",
-          date: "18:01",
-          countChat: "1",
-        },
-        {
-          id: 2,
-          name: "Nama 2",
-          chat: "haloo2",
-          date: "18:02",
-          countChat: "2",
-        },
-        {
-          id: 3,
-          name: "Nama 3",
-          chat: "haloo 3",
-          date: "18:03",
-          countChat: "3",
-        },
-        {
-          id: 4,
-          name: "Nama 4",
-          chat: "haloo 4",
-          date: "18:04",
-          countChat: "43",
-        },
-        {
-          id: 5,
-          name: "Nama 5",
-          chat: "haloo 5",
-          date: "18:05",
-          countChat: "45",
-        },
-        {
-          id: 6,
-          name: "Nama 6",
-          chat: "haloo 6",
-          date: "18:06",
-          countChat: "5",
-        },
-        {
-          id: 7,
-          name: "Nama 7",
-          chat: "haloo 7",
-          date: "18:07",
-          countChat: "43",
-        },
-        {
-          id: 8,
-          name: "Nama 8",
-          chat: "haloo 8",
-          date: "18:08",
-          countChat: "55",
-        },
-        {
-          id: 9,
-          name: "Nama 9",
-          chat: "haloo 9",
-          date: "18:09",
-          countChat: "9",
-        },
-        {
-          id: 10,
-          name: "Nama 10",
-          chat: "haloo 10",
-          date: "18:10",
-          countChat: "12",
-        },
-        {
-          id: 11,
-          name: "Nama 11",
-          chat: "haloo 11",
-          date: "18:11",
-          countChat: "1",
-        },
-        {
-          id: 12,
-          name: "Nama 12",
-          chat: "haloo 12",
-          date: "18:12",
-          countChat: "1",
-        },
-        {
-          id: 13,
-          name: "Nama 13",
-          chat: "haloo 13",
-          date: "18:13",
-          countChat: "1",
-        },
-        {
-          id: 14,
-          name: "Nama 14",
-          chat: "haloo 14",
-          date: "18:14",
-          countChat: "1",
-        },
-        {
-          id: 15,
-          name: "Nama 15",
-          chat: "haloo 15",
-          date: "18:15",
-          countChat: "1",
-        },
-      ],
+      data: [],
     };
   }
   setOpen = (value) => {
@@ -134,7 +28,7 @@ class Home extends Component {
   };
 
   renderItem = ({ item }) => {
-    console.log("cek data", item);
+    console.log("cek item", item);
     return (
       <ListItem
         key={item.email}
@@ -173,9 +67,26 @@ class Home extends Component {
       </ListItem>
     );
   };
+  componentDidMount() {
+    this.getData();
+  }
+  getData = () => {
+    const { dataLogin, chatting } = this.props.dataUser;
+    console.log("cek filter", dataLogin.email);
+
+    chatting
+      .filter((user) => user.email === dataLogin.email)
+      .map((filterData) => {
+        console.log("====================================");
+        console.log(filterData.chat);
+        console.log("====================================");
+        this.setState({
+          data: filterData.chat,
+        });
+        // return filterData.chat;
+      });
+  };
   render() {
-    console.log("cek data", this.props.dataUser.dataLogin);
-    const { open } = this.state;
     return (
       <ImageBackground
         source={require("../images/wa.jpeg")}

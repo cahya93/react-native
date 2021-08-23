@@ -13,12 +13,24 @@ import java.util.ArrayList;
 
 // @react-native-community/checkbox
 import com.reactnativecommunity.checkbox.ReactCheckBoxPackage;
+// @react-native-community/slider
+import com.reactnativecommunity.slider.ReactSliderPackage;
+// react-native-camera
+import org.reactnative.camera.RNCameraPackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-pager-view
 import com.reactnativepagerview.PagerViewPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-sqlite-storage
+import org.pgsqlite.SQLitePluginPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -67,9 +79,15 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new ReactCheckBoxPackage(),
+      new ReactSliderPackage(),
+      new RNCameraPackage(),
+      new RNFSPackage(),
+      new RNGestureHandlerPackage(),
       new PagerViewPackage(),
+      new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
+      new SQLitePluginPackage(),
       new VectorIconsPackage()
     ));
   }

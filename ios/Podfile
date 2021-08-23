@@ -16,6 +16,8 @@ target 'myApp' do
 
   pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
 
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'myAppTests' do
     inherit! :complete
     # Pods for testing

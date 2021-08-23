@@ -1,3 +1,5 @@
 import Stak from "./stack";
 import Tab from "./tab";
-export { Stak, Tab };
+import Draw from "./draw";
+
+export { Stak, Tab, Draw };

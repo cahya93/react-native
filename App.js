@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -23,6 +24,26 @@ const defaultState = {
       name: "user2",
       chat: "haloo",
       date: "18:01",
+    },
+  ],
+  chatting: [
+    {
+      email: "user1@mail.com",
+      chat: {
+        id: 1,
+        name: "user1",
+        chat: "haloo",
+        date: "18:01",
+      },
+    },
+    {
+      email: "user2@mail.com",
+      chat: {
+        id: 1,
+        name: "user2",
+        chat: "haloo",
+        date: "18:01",
+      },
     },
   ],
 };
