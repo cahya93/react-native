@@ -9,10 +9,10 @@
         android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- Required -->
-    <uses-permission android:name="android.permission.CAMERA" /> <!-- Include this only if you are planning to use the camera roll -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Include this only if you are planning to use the microphone for video recording -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Include this only if you are planning to use the camera roll -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Include this only if you are planning to use the microphone for video recording -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -50,6 +50,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.imagepicker.ImagePickerProvider"
+            android:authorities="com.myapp.imagepickerprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/imagepicker_provider_paths" />
+        </provider>
 
         <service
             android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"

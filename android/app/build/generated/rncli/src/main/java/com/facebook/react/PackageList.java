@@ -21,6 +21,8 @@ import org.reactnative.camera.RNCameraPackage;
 import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-image-picker
+import com.imagepicker.ImagePickerPackage;
 // react-native-pager-view
 import com.reactnativepagerview.PagerViewPackage;
 // react-native-reanimated
@@ -83,6 +85,7 @@ public class PackageList {
       new RNCameraPackage(),
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
+      new ImagePickerPackage(),
       new PagerViewPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),

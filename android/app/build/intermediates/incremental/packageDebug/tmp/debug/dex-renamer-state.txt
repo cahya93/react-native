@@ -1,4 +1,4 @@
-#Mon Aug 23 14:07:07 WIB 2021
+#Mon Aug 23 20:40:34 WIB 2021
 base.2=/home/cahya93/Desktop/react-native/android/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
 base.1=/home/cahya93/Desktop/react-native/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
 base.0=/home/cahya93/Desktop/react-native/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
@@ -22,10 +22,13 @@ renamed.2=classes3.dex
 path.0=classes.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.14=classes15.dex
 renamed.13=classes14.dex
 renamed.12=classes13.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
+path.14=classes_11.dex
+base.14=/home/cahya93/Desktop/react-native/android/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_11.dex
 path.13=classes_10.dex
 base.13=/home/cahya93/Desktop/react-native/android/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_10.dex
 path.12=classes_8.dex
