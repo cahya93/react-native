@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Splash, Home, Login, Contact, ChatScreen } from "../../screen";
+import {
+  Splash,
+  Home,
+  Login,
+  Contact,
+  ChatScreen,
+  Counter,
+} from "../../screen";
 
 const Stack = createNativeStackNavigator();
 class index extends Component {
@@ -13,8 +20,12 @@ class index extends Component {
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
         // initialRouteName="Splash"
-        initialRouteName="Login"
+        initialRouteName="Counter"
       >
+        <Stack.Screen
+          name="Counter"
+          children={(props) => <Counter {...props} />}
+        />
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Contact" component={Contact} />
