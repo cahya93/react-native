@@ -21,11 +21,7 @@ class SQLDataList extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text>Please look the metro's console!!</Text>
-      </View>
-    );
+    return <Text>Please look the metro's console!!</Text>;
   }
 }
 
