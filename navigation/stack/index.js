@@ -8,6 +8,7 @@ import {
   ChatScreen,
   Counter,
 } from "../../screen";
+import { connect } from "react-redux";
 
 const Stack = createNativeStackNavigator();
 class index extends Component {
@@ -15,12 +16,13 @@ class index extends Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return (
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
         // initialRouteName="Splash"
-        initialRouteName="Counter"
+        initialRouteName="Login"
       >
         <Stack.Screen
           name="Counter"
@@ -36,4 +38,13 @@ class index extends Component {
   }
 }
 
-export default index;
+const mapStateToProps = (state) => {
+  console.log(`state login:`, state.Auth);
+  return {
+    users: state.Auth.listUser,
+  };
+};
+const mapDispatchToProps = (dispatch) => ({
+  doLogin: (dataLogin) => dispatch({ type: "LOGIN", payload: { dataLogin } }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(index);

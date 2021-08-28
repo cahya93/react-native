@@ -8,16 +8,42 @@ import {
   Alert,
   Image,
 } from "react-native";
+import {
+  LoginButton,
+  AccessToken,
+  GraphRequest,
+  GraphRequestManager,
+} from "react-native-fbsdk";
 import { connect } from "react-redux";
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
+    this.state = { userInfo: {} };
   }
+  getInfoFromToken = (token) => {
+    const PROFILE_REQUEST_PARAMS = {
+      fields: {
+        string: "id, name,  first_name, last_name",
+      },
+    };
+    const profileRequest = new GraphRequest(
+      "/me",
+      { token, parameters: PROFILE_REQUEST_PARAMS },
+
+      (error, result) => {
+        console.log("token", token);
+        if (error) {
+          console.log("login info has error: " + error);
+        } else {
+          this.props.navigation.replace("Home");
+          this.setState({ userInfo: result });
+          console.log("result:", result);
+        }
+      }
+    );
+    new GraphRequestManager().addRequest(profileRequest).start();
+  };
   onSubmit = () => {
     const { email, password } = this.state;
     const listUser = this.props.users;
@@ -35,7 +61,7 @@ class Login extends Component {
           password: "",
         });
         // console.log(`login sukses :`);
-        this.props.navigation.navigate("Home");
+        this.props.navigation.replace("Home");
         this.props.doLogin(dataLogin);
         return Alert.alert("Okey", "Login success");
       }
@@ -91,20 +117,35 @@ class Login extends Component {
         {/* <TouchableOpacity style={styles.buttonContainer}>
           <Text>Register</Text>
         </TouchableOpacity> */}
+        <View style={styles.continerOr}>
+          <View style={styles.lineOr}></View>
+          <Text>OR</Text>
+          <View style={styles.lineOr}></View>
+        </View>
+        <View>
+          <LoginButton
+            onLoginFinished={(error, result) => {
+              if (error) {
+                console.log("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                console.log("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then((data) => {
+                  const accessToken = data.accessToken.toString();
+                  this.getInfoFromToken(accessToken);
+                });
+              }
+            }}
+            onLogoutFinished={() => this.setState({ userInfo: {} })}
+          />
+          {this.state.userInfo.name && (
+            <Text style={{ fontSize: 16, marginVertical: 16 }}>
+              Logged in As {this.state.userInfo.name}
+            </Text>
+          )}
+        </View>
 
-        {/* <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]}>
-          <View style={styles.socialButtonContent}>
-            <Image
-              style={styles.icon}
-              source={{
-                uri: "https://gariswarnafoto.com/wp-content/uploads/2014/08/facebook-flat-vector-logo-400x400.png",
-              }}
-            />
-            <Text style={styles.loginText}>Continue with facebook</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[styles.buttonContainer, styles.googleButton]}>
+        {/* <TouchableOpacity style={[styles.buttonContainer, styles.googleButton]}>
           <View style={styles.socialButtonContent}>
             <Image
               style={styles.icon}
@@ -152,13 +193,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonContainer: {
-    height: 45,
+    height: 35,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
+    width: 200,
+    borderRadius: 10,
   },
   loginButton: {
     backgroundColor: "#3498db",
@@ -170,6 +211,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff0000",
   },
   loginText: {
+    fontWeight: "bold",
     color: "white",
   },
   restoreButtonContainer: {
@@ -186,10 +228,23 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     marginRight: 5,
   },
+  continerOr: {
+    marginVertical: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  lineOr: {
+    borderWidth: 0.5,
+    borderColor: "grey",
+    width: "45%",
+    height: 1,
+  },
 });
 const mapStateToProps = (state) => {
+  console.log(`state login:`, state.Auth);
   return {
-    users: state.listUser,
+    users: state.Auth.listUser,
   };
 };
 const mapDispatchToProps = (dispatch) => ({

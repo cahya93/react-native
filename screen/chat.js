@@ -127,14 +127,8 @@ class Home extends Component {
       ],
     };
   }
-  setOpen = (value) => {
-    this.setState({
-      open: value,
-    });
-  };
 
   renderItem = ({ item }) => {
-    console.log("cek data", item);
     return (
       <ListItem
         key={item.email}
@@ -174,8 +168,6 @@ class Home extends Component {
     );
   };
   render() {
-    console.log("cek data", this.props.dataUser.dataLogin);
-    const { open } = this.state;
     return (
       <ImageBackground
         source={require("../images/wa.jpeg")}
@@ -220,8 +212,7 @@ const mapStateToProps = (state) => {
     dataUser: state,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  console.log("dispatch:", dispatch);
-  return {};
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+// const mapDispatchToProps = (dispatch) => {
+//   return {};
+// };
+export default connect(mapStateToProps)(Home);
