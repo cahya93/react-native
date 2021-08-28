@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { Stak } from "./navigation";
+import { Stack } from "./src/nav";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Stak />
+        <Stack />
       </NavigationContainer>
     );
   }
